@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/backend.jpg" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -246,11 +246,21 @@
         <h4 class="collapsible">Master's Thesis: In-Memory Database Solution for near Real-Time data analysis</h4>
         <div class="works-content">
           <p>Nowadays, the amount of data generated is around 2.5 quintillion bytes, and its trend is still growing. With the number of IoT (Internet of Things) services increasing, data will grow exponentially. Therefore, improving the efficiency of data processing and analysis is crucial. In this research, we choose the databases that can be used as the In-Memory Cache and develop dedicated data structures for them. The datasets stored in InfluxDB were copied and transformed into the data structures that fit the chosen database, <a href="https://redis.io/">Redis</a> and <a href="https://www.mongodb.com/">MongoDB</a>. For each data structure in each database, I benchmarked fetching, writing performance, and memory consumption.</p>
-          <b>Workflow:</b>
+          <p>For Redis, the data structures designed and implemented are 1) <a href="https://redis.io/docs/data-types/sorted-sets/#:~:text=A%20Redis%20sorted%20set%20is,Leaderboards.">sorted set</a> with pickled data. The attributes apart from timestamp of each data entry were serialized using the Python pickle module and transferred to the data schema that fits the Redis sorted set. Timestamps of the data are considered as scores since the data are often queried based on time. 2) Sorted set with hashes. Here the timestamps are seen as scores as well, but the rest of the values are stored in hashes instead. 3) Multiple sorted sets, each sorted set stores one corresponding attribute, and we use all the sets jointly in this case. I describe the implementation of the data structures in my thesis. </p>
+          <img class="img-container" src="assets/img/myworks/in_mem/mongo_comp_paging.png" alt="" width="60%">When it comes to MongoDB, instead of using the automatically generated ObjectId, we assign the index number of data entries for the _id field. When reading data, we use the pagination technique to improve the speed of querying data. With this technique, MongoDB does not search for the data from the beginning (e.g. first day of the year) and see if the data matches the query criteria. We use the $gt operator to skip the data that is not within the time parameters we want to query data. I describe the implementation of the data structures in <a href="">my thesis</a>.
+          <a href="https://github.com/dingzehu/in-memory_databases">
+            <button class="button button4" href="https://github.com/dingzehu/in-memory_databases" onclick="location.href='https://github.com/dingzehu/vis_authors_network'">Source Code</button>
+          </a>
+          <p>
+            <b>Workflow:</b>
               <SPAN class=li>Query data from InfluxDB</SPAN>
               <SPAN class=li>Transform the data into the designed data structures for Redis and MongDB </SPAN>
               <SPAN class=li>Perform data writing and benchmark the performance and memory consumption</SPAN>
-        </div>
+          </p>
+              <img class="img-center" src="assets/img/myworks/in_mem/return_all.jpg" alt="" width="70%">
+              
+          </div>
+
         <h4 class="collapsible">Network visualisation of authors' collaboration</h4>
         <div class="works-content">
           <p>In this project we created a network visualisation map for author collaboration on publications. First the <a href="https://github.com/dingzehu/vis_authors_network/tree/master/kaggle_dataset/kaggle_archive">Kaggle Dataset</a> is transformed using Python into adjacency matrix using embedding which is a low-dimensional representation of high-dimensional data. All embedding techniques attempt to reduce the dimensions of data, but meanwhile to preserve the "key" information in the data. In our use case, we attempt to obtain coordinates which can be presented on a 2-dimension graph, via using embedding techniques through a high-dimension.</p>
@@ -274,11 +284,18 @@
         </div>
         <h4 class="collapsible">Analysis and Prediction of Sensor Data to build a Forecast Model Using AI Technology</h4>
         <div class="works-content">
-          <p>To flight the climate change, a lot of science institute start to do research on weather data or climate data. In this project, we visualize and analyze data which are provided by the <a href="https://sensor.community/en/">Sensor.Community</a> project. A huge amount of sensors are set around Europe based on this project. We focus on visualizing and analyzing three measurements which are provided by these sensors, temperature, humidity and air pollution. We firstly to understand the data and to visualize them, including creating a dynamic interactive maps which show the change of measurement by time and also creating line charts of the measurements. For the part of analysing the data, we look at algorithms for outliers detection in order to find anomalous data in the observed dataset. Then we calculate the correlation coefficient of the dataset after dropping the anomalous data.</p>
+          <p>To fight climate change, a lot of science institutes focus on weather data or climate data. This project visualizes and analyzes the data provided by the Sensor.Community project. This project uses sensors located throughout Europe to gather the necessary data. We focus on the visualization and analytics of three measurements in the data provided by these sensors, temperature, humidity and air pollution. We first understand the data and visualize them, including creating dynamic interactive maps showing the change of measurement by time, also creating line charts of the measurements. For the data analysis, we look at algorithms for outliers detection to find anomalous data in the observed dataset. Then we calculate the correlation coefficient of the dataset after dropping the anomalous data.</p>
+          <p><img class="img-container" src="assets/img/myworks/openforecast/interactive_map.gif" width="400px">
+            For the dynamic interactive map, we used <a href="https://www.openstreetmap.org">OpenStreetMap</a> which is a collaborative project for creating a free editable map of the world. This project creates and distributes free geographic data of the world. The geographic data underlying this map is considered as major output of this project. On top of OpenStreetMap, we used the opensource JavaScript library <a href="https://leafletjs.com/">Leaflet</a> to create interactive map.</p>
+          <p></p>
+          <p>For outliers detection, the first mathematical method we have tried is the Z-score, the number of standard deviations above and below the mean value of what is being observed or measured. Another method, the interquartile range (IQR), also called the midspread or middle 50%, or technically H-spread, is a measurement of statistical dispersion. It means the observed data point would be the difference between the 25th and the 75th percentile, or between the lower and upper quartiles, IQR = Q3 - Q1. The upper limit is Q3 + 1.5 × IQR, and the lower limit is Q3 - 1.5 × IQR.</p>
+              <p>Another method we used is Isolation Forest algorithm, an unsupervised learning algorithm used for anomaly detection. This method is different from the two approaches previously. They try to find out the normal range of the observed data and then detect if the data points are outside of it or not, and consider these detected data points as anomalous data or so-called outliers. Isolation forest works differently, it explicitly isolates anomaly data points. 
+              The idea is similar to the Random Forest building on an ensemble of binary trees. It bases on two characteristics of the outlier data: (1) abnormal data only accounts for a small amount (2) the feature value of abnormal data is obviously different from the normal data. The algorithm splits the data into outliers or inliers, the advantage is that it can work on datasets with a huge amount of information.
+              In order to isolate the data points, this algorithm generates partitions recursively on the observed dataset, by randomly selecting a feature and then randomly selecting a value to split the minimum and maximum values. In our case, Isolation Forest detects more anomalous data.</p>
           <b>Workflow:</b>
               <SPAN class=li>Query data from InfluxDB</SPAN>
-              <SPAN class=li>Transform the data into the designed data structures for Redis and MongDB </SPAN>
-              <SPAN class=li>Perform data writing and benchmark the performance and memory consumption</SPAN>
+              <SPAN class=li>Transform the data into the proper data format that fits the visualisation of using Leaflet and OpenStreetMap</SPAN>
+              <SPAN class=li>Data analysis using outliers detection techniques</SPAN>
         </div>
         <script>
           var coll = document.getElementsByClassName("collapsible");

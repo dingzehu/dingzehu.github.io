@@ -604,16 +604,19 @@ section {
 #list{
 color: rgb(0, 4, 128);
 background: white;
+/* list-style-position: outside; */
 /* font-size: 30px; */
 }
   
 /* <!-- Removes default style of bullet point --> */
 SPAN.li{
 list-style: none;
+list-style-position: outside;
 }
 
 SPAN.li  {
-list-style: none;
+list-style-position: outside;
+/* list-style: none; */
 display: list-item;
 /* margin-left: 4em; */
 }
@@ -626,6 +629,7 @@ margin-left: 1em;
 content: "\00BB";
 color: rgb(0, 4, 128);
 font-size: 20px;
+/* list-style-position: outside; */
   }
 
   .button {
@@ -651,8 +655,19 @@ font-size: 20px;
   margin-left: 1em;
 }
 
+.img-container {
+  float: left;
+  border: 1px dotted black;
+  margin: 5px 15px 5px 0px;
+}
 .imgmax{
   margin: 15px 0px 15px 0px;
+}
+
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ----------------pop-up image------------------- */
