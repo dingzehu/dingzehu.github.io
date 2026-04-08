@@ -731,6 +731,28 @@ section {
   border-bottom: 1px solid var(--border);
 }
 
+.project-card__media--fit {
+  padding: 0.65rem 0.85rem 0.85rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Wide figures (e.g. thesis charts): scale down but never crop — full image visible */
+.project-card__img.project-card__img--fit-full {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(380px, 50vh);
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
+  object-position: center;
+  border-bottom: none;
+}
+
 .btn--secondary {
   background: var(--bg);
   color: var(--accent);
