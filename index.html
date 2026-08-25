@@ -70,9 +70,12 @@
     "knowsAbout": [
       "Python",
       "Django",
+      "Django REST Framework",
       "React",
       "Data pipelines",
       "PostgreSQL",
+      "Supabase",
+      "AWS",
       "Docker",
       "Data analysis",
       "Scientific software"
@@ -147,9 +150,11 @@
               <p class="experience-card__meta">Deutsches Elektronen-Synchrotron (DESY) — Hamburg · Apr 2023 – present</p>
             </header>
             <ul>
+              <li><strong>Contributed to PUNCH4NFDI</strong> (Helmholtz Metadata Collaboration) — Germany's National Research Data Infrastructure consortium spanning 40+ institutions — analysing and harmonising metadata schemas and designing a prototype schema per Work Package 4.2; presented findings at CoRDI 2023, the Munich PUNCH Meeting, and an HMC Meeting.</li>
+              <li><strong>Developed the FAIR Metadata Factory</strong>, a process model for extending the DataCite Metadata Schema, producing reusable experiment-specific schemas for five international physics experiments (ALPS II, LUXE, PRIMA, P2, MAMI).</li>
               <li><strong>Architected scalable metadata schemas and Python ETL data pipelines</strong>, automating data collection and cleaning and significantly reducing manual overhead for research workflows.</li>
+              <li><strong>Delivered production-ready full-stack features</strong> (Django REST Framework, React, MySQL) for the EU-funded OSCARS-NAPMIX open science platform — a ~40-model relational schema for cross-domain physics metadata, a reusable object-level permission system, and REST APIs for metadata exchange — adopted by 10+ research teams to improve the discoverability and accessibility of scientific data.</li>
               <li><strong>Led containerization of complex research environments</strong> using Docker, enabling reproducible, one-command deployment across distributed systems and reducing environment setup time.</li>
-              <li><strong>Delivered production-ready full-stack features</strong> using Django and React, adopted by 10+ research teams to improve the discoverability and accessibility of scientific data.</li>
               <li><strong>Acted as a technical bridge</strong> between research users and engineering, translating complex scientific requirements into robust, deployable software solutions.</li>
             </ul>
           </article>
@@ -228,12 +233,22 @@
               </div>
             </div>
             <div class="skill-card">
+              <h3>Backend &amp; APIs</h3>
+              <div class="tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">Django</span>
+                <span class="tag">Django REST Framework</span>
+                <span class="tag">SQLAlchemy 2.0 (async)</span>
+              </div>
+            </div>
+            <div class="skill-card">
               <h3>DevOps &amp; tools</h3>
               <div class="tags">
                 <span class="tag">Docker</span>
                 <span class="tag">Git</span>
                 <span class="tag">GitHub Actions</span>
                 <span class="tag">pytest</span>
+                <span class="tag">AWS (EC2, IAM, CLI)</span>
               </div>
             </div>
           </div>
@@ -256,7 +271,8 @@
                   <li><strong>Built an end-to-end RAG pipeline</strong> for semantic search and Q&amp;A over arXiv ML papers: Apache Airflow DAG ingests papers nightly via the arXiv API, extracts text with pdfplumber, chunks and embeds via Gemini API (<code>text-embedding-004</code>), and stores 768-dimensional vectors in PostgreSQL + pgvector with HNSW indexing for cosine similarity search.</li>
                   <li><strong>Implemented automated evaluation framework</strong> with a 30-question golden test set across four difficulty levels—including negative cases testing hallucination resistance—scored by an LLM-as-judge pattern; all scores tracked in MLflow across three experiments linking ingestion configuration to quality outcomes.</li>
                   <li><strong>Enforced 71.58% test coverage</strong> via GitHub Actions CI; all external calls (Gemini, PostgreSQL) fully mocked using pytest + AsyncMock; service isolation between Airflow and FastAPI achieved via HTTP to resolve SQLAlchemy version conflict.</li>
-                  <li><strong>Technologies:</strong> Python, FastAPI, PostgreSQL + pgvector, SQLAlchemy 2.0 async, Apache Airflow, MLflow, Gemini API, React 18, Docker Compose, GitHub Actions.</li>
+                  <li><strong>Deployed the full stack to AWS EC2</strong> via a boot-time user-data script, injecting secrets at runtime from SSM Parameter Store through a credential-less IAM instance profile; diagnosed and resolved 9 distinct deployment failures (security group misconfiguration, cross-region IAM policy mismatch, dpkg lock contention, EBS disk exhaustion) entirely via the AWS CLI and SSM Run Command, with the final deployment verified reachable via external HTTP request.</li>
+                  <li><strong>Technologies:</strong> Python, FastAPI, PostgreSQL + pgvector, SQLAlchemy 2.0 async, Apache Airflow, MLflow, Gemini API, React 18, Docker Compose, GitHub Actions, AWS (EC2, IAM, CLI).</li>
                   </ul>
                 <div class="project-card__actions">
                   <a class="btn btn--secondary" href="https://github.com/dingzehu/arxiv-rag">Repository on GitHub →</a>
@@ -275,11 +291,25 @@
                   <li><strong>Implemented robust schema enforcement</strong> and data validation rules using Pydantic, efficiently handling complex nested relationships, missing fields, and multi-page schemas via zero-shot extraction.</li>
                   <li><strong>Optimized throughput and cost efficiency</strong> by designing asynchronous batch extraction scripts using Python's <code>asyncio</code>, incorporating exponential backoff retries and token rate-limiting handlers.</li>
                   <li><strong>Achieved high system reliability</strong> by enforcing continuous data quality audits, detailed error logging, and maintaining high unit-test coverage using pytest with mocked multimodal payloads.</li>
-                  <li><strong>Technologies:</strong> Python, Gemini API, Pydantic, asyncio, PyMuPDF, pdfplumber, JSON Schema, pytest, Docker.</li>
+                  <li><strong>Technologies:</strong> Python, Gemini API, Pydantic, asyncio, pdfplumber, JSON Schema, pytest, Docker.</li>
                 </ul>
                 <div class="project-card__actions">
-                  <a class="btn btn--secondary" href="https://github.com/dingzehu/arxiv-rag">Repository on GitHub →</a>
+                  <a class="btn btn--secondary" href="https://github.com/dingzehu/pdf-to-structured-data">Repository on GitHub →</a>
                 </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-card__media project-card__media--fit">
+                <!-- <img class="project-card__img project-card__img--fit-full" src="assets/img/myworks/aeroagent/screenshot.jpg" alt="AeroAgent app screenshot" loading="lazy" decoding="async"> -->
+              </div>
+              <div class="project-card__body">
+                <h3>AeroAgent — Supabase Backend for a Cross-Platform AI Capture App</h3>
+                <p class="project-card__period">2026</p>
+                <ul class="edu-item__list project-card__bullets">
+                  <li><strong>Designed a Supabase backend</strong>: a 7-table Postgres schema with <code>captures</code> as a central append-only source of truth linked to downstream typed tables (tasks, shopping, journal), and Row Level Security policies enforcing per-user data isolation on every user-scoped table.</li>
+                  <li><strong>Built Supabase Edge Functions</strong> as the sole server-side callers of external AI/voice APIs (Gemini 2.0 Flash for classification, Deepgram/ElevenLabs for voice transcription), keeping API keys off the client, with audio staged through a private Supabase Storage bucket ahead of transcription.</li>
+                  <li><strong>Technologies:</strong> Supabase (Postgres, Row Level Security, Edge Functions, Storage), Deno.</li>
+                </ul>
               </div>
             </article>
             <article class="project-card">
