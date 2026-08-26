@@ -288,10 +288,9 @@
                 <p class="project-card__period">2026</p>
                 <ul class="edu-item__list project-card__bullets">
                   <li><strong>Engineered an automated ETL pipeline</strong> to parse unstructured scientific PDFs and extract validated, high-fidelity JSON data structures using the Gemini API (<code>gemini-2.5-flash</code>) structured outputs pattern.</li>
-                  <li><strong>Implemented robust schema enforcement</strong> and data validation rules using Pydantic, efficiently handling complex nested relationships, missing fields, and multi-page schemas via zero-shot extraction.</li>
-                  <li><strong>Optimized throughput and cost efficiency</strong> by designing asynchronous batch extraction scripts using Python's <code>asyncio</code>, incorporating exponential backoff retries and token rate-limiting handlers.</li>
-                  <li><strong>Achieved high system reliability</strong> by enforcing continuous data quality audits, detailed error logging, and maintaining high unit-test coverage using pytest with mocked multimodal payloads.</li>
-                  <li><strong>Technologies:</strong> Python, Gemini API, Pydantic, asyncio, pdfplumber, JSON Schema, pytest, Docker.</li>
+                  <li><strong>Implemented strict schema enforcement and data validation</strong> using Pydantic v2, rejecting malformed or incomplete LLM output before it reaches the database, with dedicated tests covering invalid-JSON and invalid-schema failure paths.</li>
+                  <li><strong>Built a fully async request path</strong> (FastAPI, SQLAlchemy 2.0 AsyncSession) so a slow LLM call does not block other concurrent requests, deployed via a multi-stage Dockerfile and Docker Compose with GitHub Actions CI (ruff + pytest against a live Postgres service container).</li>
+                  <li><strong>Technologies:</strong> Python, FastAPI, SQLAlchemy 2.0 async, PostgreSQL, Gemini API, Pydantic, asyncio, Docker, GitHub Actions.</li>
                 </ul>
                 <div class="project-card__actions">
                   <a class="btn btn--secondary" href="https://github.com/dingzehu/pdf-to-structured-data">Repository on GitHub →</a>
