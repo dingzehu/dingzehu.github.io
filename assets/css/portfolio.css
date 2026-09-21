@@ -668,6 +668,13 @@ section {
   gap: 1.5rem;
 }
 
+.projects-subhead {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
 .project-card {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
