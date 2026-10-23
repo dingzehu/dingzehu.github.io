@@ -71,7 +71,8 @@
       "Python", "Django", "FastAPI", "React", "Data pipelines",
       "PostgreSQL", "MySQL", "Docker", "AWS", "Apache Airflow",
       "LLM evaluation", "RAG architecture", "ETL pipelines",
-      "Celery", "Terraform"
+      "Celery", "Terraform", "Gemini API", "MLflow", "LLM integration",
+      "pgvector", "Vector embeddings"
     ]
   }
   </script>
@@ -256,7 +257,7 @@
                 <p class="project-card__period">2026</p>
                 <ul class="edu-item__list project-card__bullets">
                   <li><strong>Built a natural-language search platform</strong> over a nightly-ingested library of research papers: users ask questions in plain English and get answers grounded in real papers. Apache Airflow schedules the ingest; FastAPI serves query requests; PostgreSQL + pgvector stores vector embeddings with HNSW indexing.</li>
-                  <li><strong>Shipped an evaluation framework before optimising the pipeline</strong>: a 30-question golden test set across four difficulty levels including hallucination-resistance cases, scored automatically by an LLM-as-judge, with all experiment metrics tracked in MLflow — every pipeline change produced a measurable outcome.</li>
+                  <li><strong>Shipped an evaluation framework before optimising the pipeline</strong>: a 30-question golden test set across four difficulty levels including hallucination-resistance cases, scored automatically by an LLM-as-a-Judge, with all experiment metrics tracked in MLflow — every pipeline change produced a measurable outcome.</li>
                   <li><strong>Enforced 71.58% test coverage</strong> via GitHub Actions CI; all external calls mocked with pytest + AsyncMock. Deployed end-to-end to AWS EC2.</li>
                   <li><strong>Technologies:</strong> Python, FastAPI, PostgreSQL + pgvector, SQLAlchemy 2.0 async, Apache Airflow, MLflow, Gemini API, React + Vite, Docker Compose, GitHub Actions, AWS.</li>
                 </ul>
@@ -314,6 +315,18 @@
           </div>
           <h3 class="projects-subhead" id="earlier-work">Earlier work</h3>
           <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-card__media project-card__media--fit"></div>
+              <div class="project-card__body">
+                <h3>NAPMIX / OSCARS — EU-Funded Open Science Platform</h3>
+                <p class="project-card__period">2023 – 2026 · Deutsches Elektronen-Synchrotron (DESY)</p>
+                <ul class="edu-item__list project-card__bullets">
+                  <li><strong>Served as one of the principal developers</strong> of a cross-institutional metadata platform for nuclear and particle physics experiments, used by researchers from 9 partner institutions across Europe (GSI, FAIR, GANIL, DESY, KIT, and others) under the EU Horizon OSCARS programme.</li>
+                  <li><strong>Designed and built the core schema and API layer</strong>: a ~40-model relational schema with ~30 many-to-many association tables carrying per-relationship metadata, a reusable object-level permission class resolving ownership transitively across the model graph, and REST serializers paired for nested-read / foreign-key-write without client trust.</li>
+                  <li><strong>Technologies:</strong> Python, Django, Django REST Framework, React, MUI, MySQL, Docker, Pandas.</li>
+                </ul>
+              </div>
+            </article>
             <article class="project-card">
               <div class="project-card__media project-card__media--fit">
                 <img class="project-card__img project-card__img--fit-full" src="assets/img/myworks/in_mem/return_full_4_percent.jpg" alt="Thesis benchmark chart: full retrieval comparison figure" loading="lazy" decoding="async" width="1516" height="1079">
