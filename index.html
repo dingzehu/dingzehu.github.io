@@ -312,12 +312,11 @@
                 </div>
               </div>
             </article>
-          </div>
             <article class="project-card">
               <div class="project-card__media project-card__media--fit"></div>
               <div class="project-card__body">
                 <h3>NAPMIX / OSCARS — EU-Funded Open Science Platform</h3>
-                <p class="project-card__period">2023 – 2026 · Deutsches Elektronen-Synchrotron (DESY)</p>
+                <p class="project-card__period">2024 – 2026 · Deutsches Elektronen-Synchrotron (DESY)</p>
                 <ul class="edu-item__list project-card__bullets">
                   <li><strong>Served as one of the principal developers</strong> of a cross-institutional metadata platform for nuclear and particle physics experiments, used by researchers from 9 partner institutions across Europe (GSI, FAIR, GANIL, DESY, KIT, and others) under the EU Horizon OSCARS programme.</li>
                   <li><strong>Designed and built the core schema and API layer</strong>: a ~40-model relational schema with ~30 many-to-many association tables carrying per-relationship metadata, a reusable object-level permission class resolving ownership transitively across the model graph, and REST serializers paired for nested-read / foreign-key-write without client trust.</li>
@@ -326,7 +325,7 @@
               </div>
             </article>
           </div>
-          <h3 class="projects-subhead" id="earlier-work">Earlier work</h3>
+          <h3 class="projects-subhead" id="earlier-projects">Earlier Projects</h3>
           <div class="projects-grid">
             <article class="project-card">
               <div class="project-card__media project-card__media--fit">
@@ -386,23 +385,28 @@
       <section id="education" class="section section--muted" aria-labelledby="education-heading">
         <div class="container">
           <h2 id="education-heading" class="section__title">Education</h2>
-          <div class="edu-list">
-            <article class="edu-item">
-              <h3>Master of Science in Computer Science</h3>
-              <p class="inst">Georg-August-Universität Göttingen</p>
-              <p class="dates">Oct 2018 – Jun 2022</p>
-              <ul class="edu-item__list edu-item__list--plain">
-                <li>Focus: Databases, Big Data, Software Development</li>
-                <li>Thesis at GWDG: in-memory database solution for near real-time data analysis (Redis, MongoDB).</li>
-              </ul>
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-card__media project-card__media--fit" style="padding:0;display:block;position:relative;overflow:hidden;height:200px;">
+                <img src="assets/img/edu/msc-workstation.webp" alt="Multi-monitor developer workstation" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+                <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 25%,var(--bg) 85%);pointer-events:none;"></div>
+              </div>
+              <div class="project-card__body">
+                <h3>Master of Science in Applied Computer Science</h3>
+                <p class="project-card__period">Oct 2018 – Jun 2022 · Georg-August-Universität Göttingen</p>
+                <p>Specialised in Databases, Big Data &amp; Data Science, Machine Learning, and software engineering. Thesis: <em>In-Memory Database Solution for Near Real-Time Data Analysis</em> — engineered optimised schemas for Redis and MongoDB to replace a legacy InfluxDB setup, achieving a 10× improvement in data retrieval performance (see <a href="#earlier-work">Earlier Projects</a>).</p>
+              </div>
             </article>
-            <article class="edu-item">
-              <h3>Bachelor of Science in Information and Telecommunications Engineering</h3>
-              <p class="inst">Ming Chuan University, Taipei, Taiwan</p>
-              <p class="dates">Sep 2014 – Jun 2018</p>
-              <ul class="edu-item__list edu-item__list--plain">
-                <li>Thesis: designed and developed a web application to measure real-time network Quality of Service (QoS) parameters.</li>
-              </ul>
+            <article class="project-card">
+              <div class="project-card__media project-card__media--fit" style="padding:0;display:block;position:relative;overflow:hidden;height:200px;">
+                <img src="assets/img/edu/bsc-robotics.webp" alt="Robotic hand on laptop keyboard" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+                <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 25%,var(--bg) 85%);pointer-events:none;"></div>
+              </div>
+              <div class="project-card__body">
+                <h3>Bachelor of Science in Information and Telecommunications Engineering</h3>
+                <p class="project-card__period">Sep 2014 – Jun 2018 · Ming Chuan University, Taipei, Taiwan</p>
+                <p>Covered software development fundamentals, Android application development, internet management, and data structures. Thesis: designed and developed a web application for real-time measurement of network Quality of Service (QoS) parameters.</p>
+              </div>
             </article>
           </div>
         </div>
